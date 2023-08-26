@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Foodie</string>
+    <string name="chef">chef</string>
+    <string name="backgroundimage">backgroundImage</string>
+    <string name="find_recipes">Find recipes!</string>
+    <string name="get_started">Get started</string>
+    <string name="find_your_nrecipe">Find your\nrecipe</string>
+    <string name="background">background</string>
+    <string name="loading">loading</string>
+    <string name="tip_of_the_day">Tip of the day:</string>
+    <string name="quick_n_find">Quick \n find!</string>
+    <string name="delicious_recipes_for_you">Delicious recipes for you!</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="backgrounds">background</string>
+    <string name="random_nreceipt">Random\nrecipe</string>
+    <string name="recipe_name">Recipe name</string>
+    <string name="recipe">Recipe:</string>
+    <string name="loadings">Loading...</string>
+    <string name="add_ingredients">Add ingredients</string>
+    <string name="related_video">Related videos:</string>
+</resources>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawerLayout"
+    android:background="@color/orange"
+    tools:context=".ui.MenuActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        >
+
+        <ImageView
+            android:id="@+id/buttonForMyImageMenu"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_menu_24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            tools:context=".ui.MenuActivity"
+            android:background="@color/gray_transparent"
+            >
+
+            <TextView
+                android:id="@+id/deviliousRecipeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/splash_font"
+                android:text="@string/delicious_recipes_for_you"
+                android:textColor="@color/dark"
+                android:textSize="30sp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/ivRecipe"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:background="@mipmap/my_food"
+                android:fontFamily="@font/splash_font"
+                android:shadowColor="@color/gray"
+                android:shadowDx="3.5"
+                android:shadowDy="3.3"
+                android:shadowRadius="2.0"
+                android:text="@string/quick_n_find"
+                android:textAllCaps="false"
+                android:textColor="@color/dark"
+                android:textSize="60sp"
+                android:layout_marginTop="20dp"
+                app:cornerRadius="150dp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/deviliousRecipeTv" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/randomButton"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_margin="20dp"
+                android:background="@mipmap/random_button"
+                android:fontFamily="@font/splash_font"
+                android:shadowColor="@color/gray"
+                android:shadowDx="3.5"
+                android:shadowDy="3.3"
+                android:shadowRadius="2.0"
+                android:text="@string/random_nreceipt"
+                android:textAllCaps="false"
+                android:textColor="@color/dark"
+                android:textSize="30sp"
+                app:cornerRadius="150dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivRecipe" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:menu="@menu/nav_menu"
+        app:headerLayout="@layout/nav_header"
+        android:layout_gravity="start"
+        app:itemIconTint="@color/dark"
+        app:itemTextColor="@color/dark"
+        android:background="@color/gray"
+        android:fitsSystemWindows="true"/>
+
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

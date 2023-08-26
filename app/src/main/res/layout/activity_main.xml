@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/orange"
+    tools:context=".ui.MainActivity">
+
+
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:alpha="0.1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/splash_back"
+        android:contentDescription="@string/backgroundimage" />
+    <ImageView
+        android:id="@+id/chefIv"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginHorizontal="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/customchef"
+        android:contentDescription="@string/chef" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ivRecipe"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="40dp"
+        android:backgroundTint="@color/white"
+        app:cornerRadius="30dp"
+        android:textSize="20sp"
+        android:text="@string/get_started"
+        android:textAllCaps="false"
+        android:fontFamily="@font/splash_font"
+        android:textColor="@color/orange"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/findTv"
+        android:layout_width="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_height="wrap_content"
+        android:text="@string/find_your_nrecipe"
+        android:textSize="70sp"
+        android:fontFamily="@font/splash_font"
+        android:textColor="@color/dark"
+        app:layout_constraintBottom_toTopOf="@+id/ivRecipe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chefIv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

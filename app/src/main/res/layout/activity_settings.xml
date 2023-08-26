@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    tools:context=".ui.SettingsActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitXY"
+        android:alpha="0.05"
+        app:srcCompat="@mipmap/splash_back"
+        android:contentDescription="@string/backgrounds" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:padding="20dp"
+        android:textColor="@color/dark"
+        android:fontFamily="@font/splash_font"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:background="@drawable/settings_style_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/vibrationSwitch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:textColor="@color/dark"
+        android:fontFamily="@font/splash_font"
+        android:text="Vibration off/on"
+        android:textSize="30sp"
+        android:checked="true"
+        app:trackTint="@drawable/checkbox_second_style"
+        app:thumbTint="@drawable/checkbox_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/soundSwitch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:textColor="@color/dark"
+        android:fontFamily="@font/splash_font"
+        android:text="Sound off/on"
+        android:textSize="30sp"
+        android:checked="true"
+        app:trackTint="@drawable/checkbox_second_style"
+        app:thumbTint="@drawable/checkbox_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vibrationSwitch" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
