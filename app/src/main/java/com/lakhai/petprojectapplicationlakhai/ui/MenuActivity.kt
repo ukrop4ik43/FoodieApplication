@@ -39,6 +39,11 @@ class MenuActivity : AppCompatActivity() {
                         startActivity(myIntent)
                         finish()
                     }
+                    R.id.fourth -> {
+                        val myIntent = Intent(this@MenuActivity, ChosenActivity::class.java)
+                        startActivity(myIntent)
+                        finish()
+                    }
                 }
                 true
             }

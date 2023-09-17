@@ -54,11 +54,23 @@
         android:layout_marginStart="30dp"
         android:layout_height="wrap_content"
         android:text="@string/find_your_nrecipe"
-        android:textSize="70sp"
+        android:textSize="60sp"
         android:fontFamily="@font/splash_font"
         android:textColor="@color/dark"
-        app:layout_constraintBottom_toTopOf="@+id/ivRecipe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chefIv" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/splash_font"
+        android:text="(This app requires internet connection)"
+        android:textColor="@color/black"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toTopOf="@+id/ivRecipe"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintStart_toStartOf="@+id/findTv"
+        app:layout_constraintTop_toBottomOf="@+id/findTv" />
 </androidx.constraintlayout.widget.ConstraintLayout>

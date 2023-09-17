@@ -12,8 +12,8 @@ import com.lakhai.petprojectapplicationlakhai.R
 
 class IngredientAdapter(val c: Context,val ingredientList:ArrayList<String>) : RecyclerView.Adapter<IngredientAdapter.ingredientViewHolder>() {
     inner class ingredientViewHolder(val v: View):RecyclerView.ViewHolder(v){
-        val ingredient=v.findViewById<TextView>(R.id.nameTv)
-       var ivDelete: ImageView = v.findViewById(R.id.addInnerButton)
+        val ingredient=v.findViewById<TextView>(R.id.nameOfFavoriteTv)
+       var ivDelete: ImageView = v.findViewById(R.id.deleterButton)
 
         init{
             ivDelete.setOnClickListener {

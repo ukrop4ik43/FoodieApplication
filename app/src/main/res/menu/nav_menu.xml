@@ -11,6 +11,11 @@
         android:title="About app"
         android:icon="@drawable/baseline_info_24" />
 
+    <item
+        android:id="@+id/fourth"
+        android:title="Favorite recipes"
+        android:icon="@drawable/baseline_favorite_24" />
+
 
 
 </menu>

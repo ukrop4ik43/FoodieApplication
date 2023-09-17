@@ -14,4 +14,5 @@ class MenuLogic( val activity:LoadingActivity) {
         rotation.repeatCount = 2
         rotation.start()
     }
+
 }

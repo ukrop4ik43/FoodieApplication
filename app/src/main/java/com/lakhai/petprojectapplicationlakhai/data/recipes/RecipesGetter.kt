@@ -1,6 +1,7 @@
 package com.lakhai.petprojectapplicationlakhai.data.recipes
 
 import android.content.Context
+import com.lakhai.petprojectapplicationlakhai.data.chosen.model.FavoriteRecipe
 import com.example.example.RandomRecipeClass
 import com.lakhai.petprojectapplicationlakhai.data.constants.ConstantsObject
 import com.lakhai.petprojectapplicationlakhai.data.recipes.model.ingredientsrecipe.GettedIngredientReceipt
@@ -141,5 +142,14 @@ class RecipesGetter(val context: Context) {
             @Query("apiKey") apiKey: String,
             @Query("includeNutrition") g: String,
         ): Call<RootInstructions>
+    }
+
+    interface CallChosenModel{
+        @GET("recipes/{id}/information")
+        fun callRecipeInstruction(
+            @Path("id") id: String,
+            @Query("apiKey") apiKey: String,
+            @Query("includeNutrition") g: String,
+        ): Call<FavoriteRecipe>
     }
 }

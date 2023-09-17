@@ -2,10 +2,12 @@ package com.lakhai.petprojectapplicationlakhai.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.lakhai.petprojectapplicationlakhai.R
+import com.lakhai.petprojectapplicationlakhai.data.datastore.ChosenRecipesDS
 import com.lakhai.petprojectapplicationlakhai.data.recipes.RecipesGetter
 import com.lakhai.petprojectapplicationlakhai.data.recipes.model.ingredientsrecipe.GettedIngredientReceipt
 import com.lakhai.petprojectapplicationlakhai.data.recipes.model.instructions.RootInstructions
@@ -19,8 +21,8 @@ import org.koin.core.parameter.parametersOf
 import java.lang.Exception
 
 class GettedreceiptActivity : AppCompatActivity() {
-    var listOfRecipes: ArrayList<GettedIngredientReceipt>? = null
     private var _binding: ActivityGettedreceiptBinding? = null
+    var backPress = true
     val binding get() = _binding!!
     val managerForRandomRequest: RecipesGetter by inject()
     val toastImpl: ToastForRandomRecipe by inject { parametersOf(this@GettedreceiptActivity) }
@@ -70,10 +72,59 @@ class GettedreceiptActivity : AppCompatActivity() {
                             recipeIngredients += "- ${ingredientsNotUsed[index].original}\n"
                         }
                     }
+                    val id = responce[0].id
+                    val listRecipe = ChosenRecipesDS().getSharedPreferenceStringList(
+                        activity!!, "key"
+                    )
+                    val listToGo = listRecipe!!.toMutableList()
+
+                    for (i in listToGo.indices) {
+                        if (listToGo[i].toString().toInt() == id) {
+
+                            activity?.binding?.favoriteButton?.setImageResource(R.drawable.baseline_favorite_24_active)
+                            break
+                        }
+                    }
+                    activity?.binding?.favoriteButton?.setOnClickListener {
+                        activity?.binding?.backButton?.isClickable = false
+                        activity?.backPress = false
+                        Handler().postDelayed({
+                            activity?.binding?.backButton?.isClickable = true
+                            activity?.backPress = true
+                        }, 1000)
+                        val listRecipes =
+                            ChosenRecipesDS().getSharedPreferenceStringList(activity!!, "key")
+                        val listToGog = listRecipes!!.toMutableList()
+                        if (listToGog.size == 0) {
+                            addRecipe(
+                                id,
+                                listToGog, activity!!
+                            )
+                        } else {
+                            for (i in listToGog.indices) {
+                                if (listToGog[i].toString().toInt() == id) {
+                                    listToGog.removeAt(i)
+                                    val newList = listToGog.map { it?.toInt() }.toList()
+                                    ChosenRecipesDS().setSharedPreferenceStringList(
+                                        activity!!, "key",
+                                        newList.toList() as List<Int>
+                                    )
+                                    activity?.binding?.favoriteButton?.setImageResource(R.drawable.baseline_favorite_24)
+                                    activity?.toastImpl?.toastSetter("You delete this item \n from favorites")
+                                    break
+                                } else if (listToGog.size - 1 == i) {
+                                    addRecipe(
+                                        id,
+                                        listToGog, activity!!
+                                    )
+                                }
+                            }
+                        }
+                    }
                     Log.d("Gerrted", responce[0].title?.replace("\\<[^>]*>", "").toString())
                     val title = responce[0].title?.replace("\\<[^>]*>", "")
                     val instructionId = responce[0].id.toString()
-
+                    Log.d("gettedId", instructionId)
                     val ingredientsAndInstructions = recipeIngredients + "\n" + "\n"
 
                     activity?.binding?.ingredientTvTitle?.text = title.toString()
@@ -96,11 +147,24 @@ class GettedreceiptActivity : AppCompatActivity() {
 
         }
 
+        fun addRecipe(id: Int?, listToGog: MutableList<String?>, activity: GettedreceiptActivity) {
+            Log.d("ofgfgfdf", "ok,id id $id")
+            listToGog.add(id.toString())
+            val intList: MutableList<Int> =
+                listToGog.map { it!!.toInt() }.toMutableList()
+            ChosenRecipesDS().setSharedPreferenceStringList(
+                activity,
+                "key",
+                intList
+            )
+            activity.binding.favoriteButton.setImageResource(R.drawable.baseline_favorite_24_active)
+            activity.toastImpl.toastSetter("You added this item \n to favorites")
+        }
+
         override fun didError(message: String) {
             Log.d("ErrorsOfRandom", message)
             activity?.toastImpl?.toastSetter(message)
         }
-
     }
 
 
@@ -136,8 +200,11 @@ class GettedreceiptActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val activityEndIntent = Intent(this@GettedreceiptActivity, MenuActivity::class.java)
-        startActivity(activityEndIntent)
-        finish()
+        if (backPress) {
+            val activityEndIntent = Intent(this@GettedreceiptActivity, MenuActivity::class.java)
+            startActivity(activityEndIntent)
+            finish()
+        }
+
     }
 }

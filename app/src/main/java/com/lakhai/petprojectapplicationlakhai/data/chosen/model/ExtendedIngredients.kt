@@ -1,7 +1,6 @@
-package com.example.example
+package com.lakhai.petprojectapplicationlakhai.data.chosen.model
 
 import com.google.gson.annotations.SerializedName
-import com.lakhai.petprojectapplicationlakhai.data.chosen.model.Measures
 
 
 data class ExtendedIngredients (

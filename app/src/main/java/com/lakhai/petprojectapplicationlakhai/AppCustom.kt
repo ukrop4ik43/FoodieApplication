@@ -1,6 +1,7 @@
 package com.lakhai.petprojectapplicationlakhai
 
 import android.app.Application
+import com.lakhai.petprojectapplicationlakhai.data.chosen.FavoriteRecipeGetter
 import com.lakhai.petprojectapplicationlakhai.data.datastore.SettingsDs
 import com.lakhai.petprojectapplicationlakhai.data.recipes.RecipesGetter
 import com.lakhai.petprojectapplicationlakhai.data.recipes.randomrecipe.toast.ToastForRandomRecipe
@@ -22,5 +23,6 @@ class AppCustom:Application() {
         single { param -> ToastForRandomRecipe(param.get()) }
         single { RecipesGetter(get()) }
         single { SettingsDs(get()) }
+        single { FavoriteRecipeGetter(get()) }
     }
 }
