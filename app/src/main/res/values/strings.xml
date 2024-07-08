@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Foodie</string>
+    <string name="app_name">Foodie - recipe finder</string>
     <string name="chef">chef</string>
     <string name="backgroundimage">backgroundImage</string>
     <string name="find_recipes">Find recipes!</string>

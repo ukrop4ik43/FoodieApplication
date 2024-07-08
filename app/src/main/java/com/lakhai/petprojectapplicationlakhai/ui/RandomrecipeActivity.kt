@@ -113,7 +113,8 @@ class RandomrecipeActivity : AppCompatActivity() {
                 val title = responce.recipes[0].title?.replace("\\<[^>]*>", "")
 
                 val instructions = responce.recipes[0].instructions?.replace("\\<[^>]*>", "")
-                val ingredientsAndInstructions = recipeIngredients + "\n" + "\n" + instructions
+                var ingredientsAndInstructions = recipeIngredients + "\n" + "\n" + instructions
+                ingredientsAndInstructions= ingredientsAndInstructions.replace("<ol><li>","")
                 activity?.binding?.deviliousRecipeTv?.text = title
                 activity?.binding?.recipeTv?.text = ingredientsAndInstructions
                 WebViewSettings().setWebView(activity!!, title.toString())
@@ -122,7 +123,7 @@ class RandomrecipeActivity : AppCompatActivity() {
             }
         }
 
-        private fun addRecipe(id: Int?, listToGog: MutableList<String?>) {
+         fun addRecipe(id: Int?, listToGog: MutableList<String?>) {
             Log.d("ofgfgfdf", "ok,id id $id")
             listToGog.add(id.toString())
             val intList: MutableList<Int> =

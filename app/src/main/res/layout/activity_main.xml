@@ -71,6 +71,6 @@
         android:textSize="23sp"
         app:layout_constraintBottom_toTopOf="@+id/ivRecipe"
         app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/findTv"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/findTv" />
 </androidx.constraintlayout.widget.ConstraintLayout>

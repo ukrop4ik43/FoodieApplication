@@ -17,8 +17,13 @@
         android:theme="@style/Theme.PetprojectApplicationLakhai"
         tools:targetApi="31">
         <activity
+            android:name=".ui.FromchosenActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".ui.ChosenActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.GettedreceiptActivity"
             android:exported="false"
@@ -59,6 +64,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1010843762178620~8035886275"/>
+
     </application>
 
 </manifest>

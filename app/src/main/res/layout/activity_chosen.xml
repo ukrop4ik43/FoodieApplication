@@ -6,19 +6,23 @@
     android:layout_height="match_parent"
     android:background="@color/gray"
     tools:context=".ui.ChosenActivity">
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:alpha="0.05"
+        android:contentDescription="@string/backgrounds"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="fitXY"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@mipmap/splash_back" />
 
-        android:alpha="0.05"
-        app:srcCompat="@mipmap/splash_back"
-        android:contentDescription="@string/backgrounds" />
     <ImageView
         android:id="@+id/backButton"
         android:layout_width="50dp"
@@ -31,10 +35,20 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerFavorite"
         android:layout_width="match_parent"
-        android:layout_margin="20dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/adView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/backButton" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-1010843762178620/2118975494"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

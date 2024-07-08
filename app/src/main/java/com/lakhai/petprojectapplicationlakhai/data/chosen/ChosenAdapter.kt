@@ -1,6 +1,7 @@
 package com.lakhai.petprojectapplicationlakhai.data.chosen
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,9 +12,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.lakhai.petprojectapplicationlakhai.R
 import com.lakhai.petprojectapplicationlakhai.data.datastore.ChosenRecipesDS
+import com.lakhai.petprojectapplicationlakhai.ui.ChosenActivity
+import com.lakhai.petprojectapplicationlakhai.ui.FromchosenActivity
+import com.lakhai.petprojectapplicationlakhai.ui.MenuActivity
 
 @Suppress("UNCHECKED_CAST")
-class ChosenAdapter(private val favoriteList: ArrayList<ChosenModel>, val context: Context) :
+class ChosenAdapter(private val favoriteList: ArrayList<ChosenModel>, val context: ChosenActivity) :
     RecyclerView.Adapter<ChosenAdapter.ChosenViewHolder>() {
 
 
@@ -72,6 +76,10 @@ class ChosenAdapter(private val favoriteList: ArrayList<ChosenModel>, val contex
             itemView.setOnClickListener { v: View ->
                 val position: Int = adapterPosition
                 val idToPass = favoriteList[position].id
+                val myIntent = Intent(context, FromchosenActivity::class.java)
+                myIntent.putExtra("Username",idToPass)
+                context.startActivity(myIntent)
+                context.finish()
                 Log.d("dfss", "my id is $idToPass")
             }
         }

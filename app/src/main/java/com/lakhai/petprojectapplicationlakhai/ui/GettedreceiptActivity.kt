@@ -122,11 +122,12 @@ class GettedreceiptActivity : AppCompatActivity() {
                         }
                     }
                     Log.d("Gerrted", responce[0].title?.replace("\\<[^>]*>", "").toString())
-                    val title = responce[0].title?.replace("\\<[^>]*>", "")
+                    var title = responce[0].title?.replace("\\<[^>]*>", "")
+                    title= title?.replace("<ol><li>","")
                     val instructionId = responce[0].id.toString()
                     Log.d("gettedId", instructionId)
-                    val ingredientsAndInstructions = recipeIngredients + "\n" + "\n"
-
+                    var ingredientsAndInstructions = recipeIngredients + "\n" + "\n"
+                    ingredientsAndInstructions= ingredientsAndInstructions.replace("<ol><li>","")
                     activity?.binding?.ingredientTvTitle?.text = title.toString()
                     activity?.binding?.recipeTv?.text =
                         ingredientsAndInstructions

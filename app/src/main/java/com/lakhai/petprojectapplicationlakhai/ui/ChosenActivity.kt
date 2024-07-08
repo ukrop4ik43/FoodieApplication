@@ -6,6 +6,8 @@ import android.util.Log
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.lakhai.petprojectapplicationlakhai.data.chosen.model.FavoriteRecipe
 import com.lakhai.petprojectapplicationlakhai.data.chosen.ChosenAdapter
 import com.lakhai.petprojectapplicationlakhai.data.chosen.ChosenModel
@@ -27,6 +29,7 @@ class ChosenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityChosenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initAdMob()
         onBack()
         binding.backButton.setOnClickListener {
             val myIntent = Intent(this@ChosenActivity, MenuActivity::class.java)
@@ -58,7 +61,7 @@ class ChosenActivity : AppCompatActivity() {
             try {
                 Log.d("Gerrted", responce.title?.replace("\\<[^>]*>", "").toString())
                 var title = responce.title?.replace("\\<[^>]*>", "")
-                title= title?.replace(" ","\n")
+                title = title?.replace(" ", "\n")
                 val instructionId = responce.id.toString()
                 Log.d("gettedId", instructionId)
                 val chosenModel =
@@ -81,6 +84,28 @@ class ChosenActivity : AppCompatActivity() {
         override fun didError(message: String) {
             Log.d("ErrorsOfRandom", message)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.adView.resume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.adView.pause()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.adView.destroy()
+    }
+
+    private fun initAdMob() {
+        MobileAds.initialize(this@ChosenActivity)
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
+
     }
 
     private fun onBack() {

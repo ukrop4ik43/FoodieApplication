@@ -90,6 +90,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ivRecipe" />
 
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adViewq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:adSize="BANNER"
+                app:adUnitId="ca-app-pub-1010843762178620/2118975494"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/randomButton" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
